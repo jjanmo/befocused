@@ -16,10 +16,9 @@ const Timer = () => {
         />
         <Button
           name="stop-circle-o"
-          color="tomato"
+          color="dodgerblue"
           onPress={() => alert('stop')}
         />
-        <Button />
       </View>
     </View>
   );
