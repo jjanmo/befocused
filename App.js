@@ -6,8 +6,8 @@ import CircularProgressbar from './components/CircularProgressbar';
 const App = () => {
   return (
     <View style={styles.container}>
-      {/* <Timer /> */}
-      <CircularProgressbar />
+      <Timer />
+      {/* <CircularProgressbar /> */}
     </View>
   );
 };

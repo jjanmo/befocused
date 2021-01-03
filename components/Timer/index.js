@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
+import Button from '../Button';
 
 const Timer = () => {
   return (
@@ -7,8 +8,18 @@ const Timer = () => {
       <View style={styles.timer}>
         <Text style={styles.time}>25:00</Text>
       </View>
-      <View style={styles.button}>
-        <Text>Button here</Text>
+      <View style={styles.buttonContainer}>
+        <Button
+          name="play-circle-o"
+          color="tomato"
+          onPress={() => alert('play')}
+        />
+        <Button
+          name="stop-circle-o"
+          color="tomato"
+          onPress={() => alert('stop')}
+        />
+        <Button />
       </View>
     </View>
   );
@@ -32,8 +43,9 @@ const styles = StyleSheet.create({
     fontSize: 90,
     color: 'tomato',
   },
-  button: {
+  buttonContainer: {
     flex: 1,
+    flexDirection: 'row',
     justifyContent: 'flex-start',
     alignItems: 'center',
   },
