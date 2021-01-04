@@ -4,7 +4,6 @@ import {TouchableOpacity, StyleSheet} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 const Button = ({name, onPress, color}) => {
-  console.log(name, onPress, color);
   return (
     <TouchableOpacity onPress={onPress}>
       <Icon size={100} name={name} color={color} />
