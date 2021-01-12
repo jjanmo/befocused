@@ -33,6 +33,9 @@ const reducer = (state = initialState, action) => {
     case ADD_SECOND: {
       return applyAddSecond(state);
     }
+    default: {
+      return state;
+    }
   }
 };
 

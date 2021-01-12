@@ -1,14 +1,20 @@
 import React from 'react';
 import {StyleSheet, View, Text} from 'react-native';
 import Timer from './components/Timer';
-import CircularProgressbar from './components/CircularProgressbar';
+import reducer from './reducers/timerReducer';
+import {createStore} from 'redux';
+import {Provider} from 'react-redux';
 
 const App = () => {
+  const store = createStore(reducer);
+  console.log(store);
+
   return (
-    <View style={styles.container}>
-      <Timer />
-      {/* <CircularProgressbar /> */}
-    </View>
+    <Provider store={store}>
+      <View style={styles.container}>
+        <Timer />
+      </View>
+    </Provider>
   );
 };
 

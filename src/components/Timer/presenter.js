@@ -1,24 +1,32 @@
-import React, {Component} from 'react';
+//short explaination about presenter file
+//just for presenting for something
+//do NOT use redux or something logical
+
+import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import Button from '../Button';
 
-const Timer = () => {
+const Timer = ({isPlaying, elapsedTime, timerDuration}) => {
   return (
     <View style={styles.container}>
       <View style={styles.timer}>
         <Text style={styles.time}>25:00</Text>
       </View>
       <View style={styles.buttonContainer}>
-        <Button
-          name="play-circle-o"
-          color="tomato"
-          onPress={() => alert('play')}
-        />
-        <Button
-          name="stop-circle-o"
-          color="dodgerblue"
-          onPress={() => alert('stop')}
-        />
+        {!isPlaying && (
+          <Button
+            name="play-circle-o"
+            color="tomato"
+            onPress={() => alert('play')}
+          />
+        )}
+        {isPlaying && (
+          <Button
+            name="stop-circle-o"
+            color="dodgerblue"
+            onPress={() => alert('stop')}
+          />
+        )}
       </View>
     </View>
   );
