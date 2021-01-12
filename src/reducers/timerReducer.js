@@ -70,7 +70,7 @@ function applyAddSecond(state) {
 }
 
 //export action creator
-const actionCreator = {
+export const actionCreator = {
   startTimer,
   restartTimer,
   addSecond,

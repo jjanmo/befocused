@@ -3,6 +3,8 @@
 // container - presenter relation
 
 import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import {actionCreator} from '../../reducers/timerReducer';
 import Timer from './presenter';
 
 function mapStateToProps(state) {
@@ -14,7 +16,16 @@ function mapStateToProps(state) {
     timerDuration,
   };
 }
-//mapStateToProps : 건네받은 state를 해당 컴퍼넌트에 props으로 전달하는 함수
-//이름 그대로 이해해보자.
 
-export default connect(mapStateToProps)(Timer);
+function mapDispatchToProps(dispatch) {
+  return {
+    startTimer: bindActionCreators(actionCreator.startTimer, dispatch),
+    restartTimer: bindActionCreators(actionCreator.restartTimer, dispatch),
+  };
+}
+
+//understanding just like function name!!
+//mapStateToProps :  state를 해당 컴퍼넌트의 props으로 전달하는 함수
+//mapDispatchToProps : dispatch를 해당 컴퍼넌트의 props로 전달하는 함수
+
+export default connect(mapStateToProps, mapDispatchToProps)(Timer);

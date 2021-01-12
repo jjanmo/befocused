@@ -6,25 +6,27 @@ import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import Button from '../Button';
 
-const Timer = ({isPlaying, elapsedTime, timerDuration}) => {
+const Timer = ({
+  isPlaying,
+  elapsedTime,
+  timerDuration,
+  startTimer,
+  restartTimer,
+}) => {
   return (
     <View style={styles.container}>
       <View style={styles.timer}>
-        <Text style={styles.time}>25:00</Text>
+        <Text style={!isPlaying ? styles.tomato : styles.blue}>25:00</Text>
       </View>
       <View style={styles.buttonContainer}>
         {!isPlaying && (
-          <Button
-            name="play-circle-o"
-            color="tomato"
-            onPress={() => alert('play')}
-          />
+          <Button name="play-circle-o" color="tomato" onPress={startTimer} />
         )}
         {isPlaying && (
           <Button
             name="stop-circle-o"
             color="dodgerblue"
-            onPress={() => alert('stop')}
+            onPress={restartTimer}
           />
         )}
       </View>
@@ -45,10 +47,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  time: {
-    color: 'white',
+  tomato: {
     fontSize: 90,
     color: 'tomato',
+  },
+  blue: {
+    fontSize: 90,
+    color: 'dodgerblue',
   },
   buttonContainer: {
     flex: 1,
