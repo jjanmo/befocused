@@ -2,8 +2,9 @@
 //just for presenting for something
 //do NOT use redux or something logical
 
-import React from 'react';
+import React, {useEffect, useRef} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
+import CustomHooks from '../../hooks';
 import Button from '../Button';
 
 const Timer = ({
@@ -12,7 +13,22 @@ const Timer = ({
   timerDuration,
   startTimer,
   restartTimer,
+  addSecond,
 }) => {
+  const interval = useRef(null);
+  const prevIsPlaying = CustomHooks.usePrevious(isPlaying);
+
+  useEffect(() => {
+    if (isPlaying && !prevIsPlaying) {
+      interval.current = setInterval(() => {
+        addSecond();
+      }, 1000);
+    } else if (!isPlaying && prevIsPlaying) {
+      clearInterval(interval.current);
+    }
+    return () => clearInterval(interval.current);
+  }, [isPlaying]);
+
   return (
     <View style={styles.container}>
       <View style={styles.timer}>

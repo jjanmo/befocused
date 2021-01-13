@@ -1,7 +1,5 @@
 /*
-
 model : redux ducks
-
 */
 
 //actions
