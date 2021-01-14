@@ -1,4 +1,4 @@
-# Befocus
+# Befocused
 
 > Clone simple [Be Focused App](https://apps.apple.com/kr/app/be-focused-focus-timer/id973130201) using react native
 
