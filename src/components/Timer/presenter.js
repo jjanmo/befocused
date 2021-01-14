@@ -5,6 +5,7 @@
 import React, {useEffect, useRef} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import CustomHooks from '../../hooks';
+import {setTimeFormat} from '../../utils/formats';
 import Button from '../Button';
 
 const Timer = ({
@@ -32,7 +33,9 @@ const Timer = ({
   return (
     <View style={styles.container}>
       <View style={styles.timer}>
-        <Text style={!isPlaying ? styles.tomato : styles.blue}>25:00</Text>
+        <Text style={!isPlaying ? styles.tomato : styles.blue}>
+          {setTimeFormat(timerDuration - elapsedTime)}
+        </Text>
       </View>
       <View style={styles.buttonContainer}>
         {!isPlaying && (
